@@ -22,7 +22,8 @@ class PluginSnow extends Plugin {
     );
 
 	// Объявление переопределений
-	protected $aInherits=array( 	   
+	protected $aInherits=array(
+		'mapper' => array('ModuleUser_MapperUser'),
     );
 
 	// Активация плагина
