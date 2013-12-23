@@ -1,5 +1,5 @@
 <?php
-class PluginSnowls_ModuleUser_MapperUser extends PluginSnowls_Inherit_ModuleUser_MapperUser
+class PluginSnow_ModuleUser_MapperUser extends PluginSnow_Inherit_ModuleUser_MapperUser
 {
 
 
