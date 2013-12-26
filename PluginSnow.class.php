@@ -22,7 +22,8 @@ class PluginSnow extends Plugin {
     );
 
 	// Объявление переопределений
-	protected $aInherits=array( 	   
+	protected $aInherits=array(
+		'mapper' => array('ModuleUser_MapperUser'),
     );
 
 	// Активация плагина
@@ -40,7 +41,10 @@ class PluginSnow extends Plugin {
 	public function Init() {
         //$this->Viewer_AppendScript(Plugin::GetTemplateWebPath(__CLASS__).'js/snow.js');
         //$this->Viewer_Fetch(Plugin::GetTemplatePath(__CLASS__) . 'snow_header.tpl');
-		
+		/**
+		 * При активации выполняем SQL дамп
+		 */
+		$this->ExportSQL(dirname(__FILE__).'/dump.sql');	
 	}
 
    
