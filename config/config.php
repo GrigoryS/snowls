@@ -17,7 +17,6 @@ $config['font'] = 'Times';    // шрифт для снежинок
 $config['maxsize'] = 5; //максимальный размер снежинки
 $config['minsize'] = 1; //минимальный размер снежинки
 $config['zone'] = 1; //1-снежинки на весь экран, 2-снежинки слева, 3-снежинки по центру, 4-снежинки справа
-$config['show_snow'] = false; //Активировать снежинки true|false
 
 //Экшены
 Config::Set('router.page.snow','PluginSnow_ActionSnow');
