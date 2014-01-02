@@ -5,9 +5,13 @@
 С Новым Годом и Рождеством! 
 
 
- Разработчик - Grigory Smirnov. Пишите на grigory_dev@yahoo.com
+ Первоначальный Разработчик - Grigory Smirnov. Пишите на grigory_dev@yahoo.com
  2013. С новым Годом вас!
 
 
  Developer is Grigory Smirnov. Write to grigory_dev@yahoo.com or grigory_smirnov@mail.ru
  2013. Happy New Year!
+ 
+
+
+ ВЕРСИЯ 2.0 - НОВЫЙ РАЗРАБОТЧИК. 
