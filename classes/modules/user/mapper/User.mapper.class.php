@@ -24,22 +24,37 @@ class PluginSnow_ModuleUser_MapperUser extends PluginSnow_Inherit_ModuleUser_Map
 		
 		$sql = 'SELECT *
 			FROM 
-				' . Config::Get('db.table.snow_users') . ' as su
-			INNER JOIN
-				' . Config::Get('db.table.snow_toys') . ' as st
-			ON
-				su.toy_id = st.toy_id
+				' . Config::Get('db.table.snow_users') . '
 			WHERE
 				`user_id` IN (?a)			
 		';		
 		$aResult = array();
 		
 		if($aRows=$this->oDb->select($sql,$aArrayId)) {
-			foreach($aRows as $aRow){
-				$aResult[$aRow['user_id']][] = $aRow;
+			if(count($aRows)>0){
+				foreach($aRows as $aRow){
+
+					$aExtra = @unserialize($aRow['snow_extra']);
+					if(isset($aExtra['toys']) and count($aExtra['toys'])>0){
+						$aToysId = array();
+						
+						foreach($aExtra['toys'] as $key=>$aExtraToy){
+							$aToysId[] = key($aExtraToy);				
+						}
+
+						$oEngine = Engine::GetInstance();
+						$aToys = $oEngine->PluginSnow_Snow_GetToysByArrayId(array_unique($aToysId));
+						$i = 0;
+						foreach($aExtra['toys'] as $key=>$aExtraToy){
+							$aExtra['toys'][$key][key($aExtraToy)]['src'] = $aToys[key($aExtraToy)];
+						}
+					}
+					$aRow['snow_extra'] = serialize($aExtra);
+					$aResult[$aRow['user_id']] = Engine::GetEntity('PluginSnow_Snow_Snow',$aRow);
+				}
 			}
-			
 		}
+		
 		return $aResult;
 	}
 
