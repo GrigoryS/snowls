@@ -3,9 +3,7 @@
 class PluginSnow_HookSnow extends Hook {
 
 	public function RegisterHook () {
-		if (Config::Get('plugin.snow.show_snow')){
-			$this -> AddHook ('template_html_head_end', 'HeadEnd');                              // for main init
-		}
+		$this -> AddHook ('template_html_head_end', 'HeadEnd');                              // for main init
 		
 		$this -> AddHook ('template_menu_settings_settings_item', 'TplMenuSettings');        // 
 		
@@ -15,7 +13,10 @@ class PluginSnow_HookSnow extends Hook {
 	// ---
 
 	public function HeadEnd () {
-		return $this -> Viewer_Fetch (Plugin::GetTemplatePath (__CLASS__) . 'snow_begin.tpl');
+		$oUserCurrent=$this->User_GetUserCurrent();
+		if ($oUserCurrent and ($oUserToys = $oUserCurrent->getToys() and $oUserToys->getShowSnow())){
+			return $this -> Viewer_Fetch (Plugin::GetTemplatePath (__CLASS__) . 'snow_begin.tpl');
+		}
 	}
 	
 	// ---
