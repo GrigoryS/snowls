@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>
+		<lang name="default">Snow</lang>
+		<lang name="russian">Снежинки</lang>
+	</name>
+	<author>
+		<lang name="default">Grigory Smirnov (testerok)</lang>
+		<lang name="russian">Grigory Smirnov (testerok)</lang>
+	</author>
+	<homepage>http://livestreet.ru/profile/testerok</homepage>
+	<version>1.0</version>
+	<requires>
+        <livestreet>1.*</livestreet>
+		<plugins>
+		</plugins>
+	</requires>
+	<description>
+		<lang name="default">Beautiful snow on your site!</lang>
+		<lang name="russian">Красивые снежинки на вашем сайте! </lang>
+	</description>
+</plugin>
